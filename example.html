@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue bigselect for long text</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+	<link rel="stylesheet" href="vue-bigselect.css">
+	<style>
+		html, body {
+			height: 100%;
+			padding-top: 10px;
+			background: #e6ecf1;
+			font-family: sans-serif;
+		}
+		#app {
+			height: 100%;
+			padding-top: 0px;
+			text-align: center;
+			width: 100%;
+		}
+		#app .form {
+			width: 100%;
+			max-width: 700px;
+			margin: 0 auto;
+			padding: 20px 50px;
+			border-radius: 5px;
+			text-align: left;
+		}
+		#app strong, #app span {
+			margin-bottom: 5px;
+			font-size: .95rem;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+	    <div class="form">
+		    <strong>Select an option: </strong><span>{{id}}</span>
+		    <br>
+		    <v-bigselect v-model="id" :options="lists" :id="'id'" :text="'name'"/>
+	    </div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="vue-bigselect.js"></script>
+	<script>
+		const lists = [
+			{ id: "1", name: "Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl. Swab barque interloper chantey doubloon starboard grog black jack gangway rutters." },
+			{ id: "2", name: "Deadlights jack lad schooner scallywag dance the hempen jig carouser broadside cable strike colors." },
+			{ id: "3", name: "Bring a spring upon her cable holystone blow the man down spanker Shiver me timbers to go on account lookout wherry doubloon chase. Belay yo-ho-ho keelhaul squiffy black spot yardarm spyglass sheet transom heave to." },
+			{ id: "4", name: "Trysail Sail ho Corsair red ensign hulk smartly boom jib rum gangway. Case shot Shiver me timbers gangplank crack Jennys tea cup ballast Blimey lee snow crow's nest rutters." },
+			{ id: "5", name: "Fluke jib scourge of the seven seas boatswain schooner gaff booty Jack Tar transom spirits." },
+			{ id: "6", name: "Scuttle lass chantey Jolly Roger pressgang topmast fluke sheet bounty fore. Six pounders coffer lad Privateer barque bilged on her anchor jib no prey, no pay gally chase guns. Lateen sail draft ballast long boat run a shot across the bow snow Arr dance the hempen jig Chain Shot Jack Ketch." }
+		];
+		new Vue({
+			el: "#app",
+			data: {
+				lists: lists,
+				id: ""
+			},
+			methods: {}
+		});
+	</script>
+</body>
+</html>
