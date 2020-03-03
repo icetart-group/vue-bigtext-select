@@ -11,12 +11,7 @@ Vue.component("v-bigselect", {
 						</ul>
 					</div>
 				</div>`,
-	props: {
-		options: Array,
-		text: String,
-		id: String,
-		value: String
-	},
+	props: ['options','text','id','value'],
 	data() {
 		return {
 			temp: "",
@@ -57,6 +52,7 @@ Vue.component("v-bigselect", {
 			this.getBlur();
 			this.temp = item[this.text];
 			this.$emit("input", item[this.id]);
+			this.$emit("change");
 		},
 		hoverItem(id) {
 			this.hovered = id;
