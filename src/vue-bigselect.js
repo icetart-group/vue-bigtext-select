@@ -1,5 +1,6 @@
 Vue.component("v-bigselect", {
 	template: 	`<div class="v-bs_">
+					<span style="display:none">{{temp_changed}}</span>
 					<div class="v-bs_select">
 						<div contenteditable="true" autocomplete="false" class="v-bs_input" v-text="temp" @input="onInputEdit" @keydown.enter="endEdit" @keydown.down="downEdit" @keydown.up="upEdit" @click="clear"></div>
 						<i class="fa fa-angle-left v-bs_fa"></i>
@@ -100,6 +101,15 @@ Vue.component("v-bigselect", {
 				}
 			});
 			return filtered;
-		}
+		},
+        temp_changed: function() {
+            var _this = this;
+            _this.options.forEach( el => {
+                if(_this.value == el[_this.id]){
+                    _this.temp = el[this.text];
+                }
+            })
+            return _this.temp;
+        }
 	}
 });
